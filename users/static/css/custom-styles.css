@@ -1,0 +1,327 @@
+/*Subject cards*/
+
+.rounded-4 { border-radius: .5rem; }
+.rounded-5 { border-radius: 1rem; }
+
+.text-shadow-1 { text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25); }
+.text-shadow-2 { text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); }
+.text-shadow-3 { text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); }
+
+.card-cover {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+/*
+ * Dark Mode Toggle
+ * Copyright (c) 2015 instructure-react
+ * Forked from Dan Abramov's personal blog
+ * https://github.com/gaearon/overreacted.io/blob/master/src/components/Toggle.css
+ * MIT License
+**/
+.js-toggle {
+    touch-action: pan-x;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    -webkit-touch-callout: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.js-toggle-screenreader-only {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.js-toggle-track {
+    width: 50px;
+    height: 24px;
+    padding: 0;
+    border-radius: 30px;
+    background-color: hsl(222, 14%, 7%);
+    transition: all 0.2s ease;
+}
+
+.js-toggle-track-check {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: 5px;
+    top: 0px;
+    bottom: 0px;
+    margin-top: auto;
+    margin-bottom: auto;
+    line-height: 0;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.js-toggle--checked .js-toggle-track-check {
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+.js-toggle-track-x {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    right: 5px;
+    top: 0px;
+    bottom: 0px;
+    margin-top: auto;
+    margin-bottom: auto;
+    line-height: 0;
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+.js-toggle--checked .js-toggle-track-x {
+    opacity: 0;
+}
+
+.js-toggle-thumb {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #fafafa;
+    box-sizing: border-box;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    transform: translateX(0);
+}
+
+.js-toggle--checked .js-toggle-thumb {
+    transform: translateX(26px);
+    border-color: #19ab27;
+}
+
+.js-toggle--focus .js-toggle-thumb {
+    box-shadow: 0px 0px 2px 3px rgb(255, 167, 196);
+}
+
+.js-toggle:active .js-toggle-thumb {
+    box-shadow: 0px 0px 5px 5px rgb(255, 167, 196);
+}
+
+/*Normal CSS*/
+
+div.submission-true {
+    color: #177b4b
+}
+
+#img-upload{
+    width: 50%;
+}
+
+div.font-awesome {
+    font-family: Arial, FontAwesome;
+}
+
+div.submission-graded {
+    color: #0dcaf0
+}
+
+/*Dark mode*/
+
+body.dark-mode,
+body.dark-mode main * {
+    background: #2d2d2d;
+    color: #f5f5f5; /* Dark mode font color*/
+}
+
+body.dark-mode .link-dark {
+    color: #fff
+}
+
+body.dark-mode div.panel-body {
+    background-color: #2d2d2d;
+    color: #fff
+}
+
+body.dark-mode footer.bg-light {
+    background: #3c3c3c !important;
+}
+
+body.dark-mode header.border-bottom {
+    border-bottom: 1px solid #696969!important;
+}
+
+body.dark-mode a.navbar-brand {
+    color: #97b6f3;
+}
+
+body.dark-mode input.form-control {
+    background-color: #484848;
+    color: #fff;
+}
+
+body.dark-mode .card-header {
+    background-color: #696969;
+    border-bottom: 1px solid rgb(255 255 255);
+}
+
+/*body.dark-mode a {*/
+/*    color: #97b6f3;*/
+/*}*/
+
+body.dark-mode a.btn-primary {
+    color: #fff
+}
+
+body.dark-mode a.nav-link.active {
+    background-color: #696969;
+    color: #97b6f3;
+}
+
+body.dark-mode a.nav-link {
+    color: #97b6f3;
+}
+
+body.dark-mode .breadcrumb-item+.breadcrumb-item::before {
+    color: #b5b5b5;
+}
+
+body.dark-mode li.breadcrumb-item {
+    color: #b5b5b5;
+}
+
+/*body.dark-mode div.text-start {*/
+/*    background-color: #696969*/
+/*}*/
+
+body.dark-mode div.submission-true {
+    color: #00ab58
+}
+
+body.dark-mode div.submission-graded {
+    color: #0dcaf0
+}
+
+body.dark-mode .btn-success {
+    background-color: #00ab58
+}
+
+body.dark-mode .border-success {
+    border-color: #00ab58!important
+}
+
+body.dark-mode h5.night-header {
+    color: #fff
+}
+
+body.dark-mode div.modal-header {
+    background-color: #5f5f5f;
+    border-top-left-radius: calc(.3rem - 1px);
+    border-top-right-radius: calc(.3rem - 1px);
+}
+
+body.dark-mode div.modal-body {
+    background-color: #5f5f5f;
+}
+
+body.dark-mode div.modal-footer {
+    background-color: #5f5f5f;
+    border-bottom-right-radius: calc(.3rem - 1px);
+    border-bottom-left-radius: calc(.3rem - 1px);
+}
+
+body.dark-mode button.btn-close {
+    filter: invert(1)
+}
+
+body.dark-mode .text-black-50 {
+    color: rgba(255,255,255,.5)!important;
+}
+
+body.dark-mode .form-control {
+    background-color: #484848;
+    color: #fff;
+}
+
+body.dark-mode a.breadcrumb-link-color {
+    color: #97b6f3;
+}
+
+body.dark-mode .column-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+body.dark-mode .setting-menu-box,
+body.dark-mode .setting-main-box {
+    background-color: #3c3c3c!important;
+}
+
+body.dark-mode .btn-outline-dark {
+    color: #fff;
+    border-color: #fff;
+}
+
+body.dark-mode a.dropdown-item {
+    color: #ffffff;
+}
+
+body.dark-mode .dropdown-menu {
+    background-color: #5f5f5f;
+}
+
+body.dark-mode .dropdown-item:hover {
+    background-color: #8f8f8f;
+}
+
+/*Comment box in dark mode*/
+
+body.dark-mode div.btn-toolbar,
+body.dark-mode div.md-footer,
+body.dark-mode div.md-preview,
+body.dark-mode div.md-preview-box,
+body.dark-mode div.md-fullscreen-mode {
+    background-color: #484848
+}
+
+body.dark-mode .text-muted {
+    color: #fff;
+}
+
+body.dark-mode a.btn-input {
+    color: #97b6f3;
+}
+
+body.dark-mode .md-editor>textarea {
+    background-color: #353535;
+    color: #fff;
+}
+
+body.dark-mode div.md-fullscreen-mode {
+    background-color: #484848!important;
+}
+
+body.dark-mode .md-editor.md-fullscreen-mode .md-input,
+body.dark-mode .md-editor.md-fullscreen-mode .md-preview {
+    color: #fff;
+    background: #484848!important;
+}
+
+body.dark-mode .md-editor.md-fullscreen-mode .md-input:focus,
+body.dark-mode .md-editor.md-fullscreen-mode .md-input:hover {
+    color: #fff;
+    background: #353535!important;
+}
+
+body.dark-mode .md-preview-span span {
+    color: #fff;
+}

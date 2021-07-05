@@ -29,13 +29,14 @@
           <div class="row">
             <div class="col" style="background-image: url('{% static "images/897480.png" %}');">
             </div>
-            <div class="text-start text-white col">
+            <div class="text-start text-white col detail-box align-middle">
               <form method="POST">
                   <p class="fs-1">Login</p>
                     {% csrf_token %}
                     {{ form|crispy }}
+                  <p></p>
                     <button class="btn btn-primary" type="submit">Login</button>
-                    <div class="border-top pt-3">
+                    <div class="pt-3">
                         <small class="text-muted">
                             Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
                         </small>

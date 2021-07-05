@@ -9,6 +9,10 @@ p.name {
     color: #fff;
 }
 
+.detail-box {
+    height: 680px;
+}
+
 .form-signin {
     width: 100%;
     max-width: 1000px;

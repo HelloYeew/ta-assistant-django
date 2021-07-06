@@ -1,8 +1,9 @@
 from django.urls import path
 from . import views
-from .views import ClassCreateView
+from .views import ClassCreateView, ClassDetailView
 
 urlpatterns = [
     path('', views.home, name='classroom-home'),
-    path('new-class/', ClassCreateView.as_view(), name='new-class')
+    path('new-class/', ClassCreateView.as_view(), name='new-class'),
+    path('class/<int:pk>',ClassDetailView.as_view(), name="class-detail")
 ]

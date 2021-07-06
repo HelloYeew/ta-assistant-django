@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
     CreateView,
+    DetailView
 )
 from .forms import ClassCreationForm
 from .models import Class
@@ -25,3 +26,7 @@ class ClassCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+class ClassDetailView(DetailView):
+    model = Class

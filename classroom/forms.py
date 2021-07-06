@@ -3,8 +3,11 @@ from .models import Class
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
-class ClassCreationForm(forms.ModelForm):
+class EditMember(forms.ModelForm):
+    student = forms.Textarea()
+    ta = forms.Textarea()
+    teacher = forms.Textarea()
 
     class Meta:
         model = Class
-        fields = ['name', 'image']
+        fields = ['student', 'ta', 'teacher']

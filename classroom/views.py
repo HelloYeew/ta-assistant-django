@@ -4,9 +4,10 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
     CreateView,
-    DetailView
+    DetailView,
+    UpdateView
 )
-from .forms import ClassCreationForm
+from .forms import EditMember
 from .models import Class
 
 
@@ -30,3 +31,19 @@ class ClassCreateView(LoginRequiredMixin, CreateView):
 
 class ClassDetailView(DetailView):
     model = Class
+
+
+class ClassUpdateMember(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Class
+    template_name = 'classroom/class_editmember.html'
+    fields = ['student', 'ta', 'teacher']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False

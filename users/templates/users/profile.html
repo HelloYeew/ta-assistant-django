@@ -13,7 +13,7 @@
                 <div class="row">
                   <div class="col-12 col-sm-auto mb-3">
                     <div class="mx-auto" style="width: 140px;">
-                      <img class="rounded-circle" src="assets/img/profile/dead-inside.jpeg" width=140px>
+                      <img class="rounded-circle" src="{{ user.profile.image.url }}" width=140px>
                     </div>
                   </div>
                   <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
@@ -37,14 +37,14 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Full Name</label>
-                                <input class="form-control" type="text" name="name" placeholder="Dead Inside" value="Dead Inside" disabled readonly>
+                                <input class="form-control" type="text" name="name" placeholder="Dead Inside" value="{{ user.first_name }} {{ user.last_name }}" disabled readonly>
                               </div>
                             </div>
                             <div class="col">
                               <div class="form-group">
                                 <label>ID</label>
                                 <div class="form-disabled">
-                                  <input class="form-control" type="text" name="number" placeholder="6xxxxxxxxx" value="6310545566" disabled readonly>
+                                  <input class="form-control" type="text" name="number" placeholder="6xxxxxxxxx" value="{{ user.student_id }}" disabled readonly>
                                 </div>
                               </div>
                             </div>

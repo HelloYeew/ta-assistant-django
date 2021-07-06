@@ -1,0 +1,91 @@
+{% extends "classroom/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <div class="row flex-lg-nowrap">
+
+    <div class="col">
+      <div class="row">
+        <div class="col mb-3">
+          <div class="card setting-main-box">
+            <div class="card-body">
+              <div class="e-profile">
+                <div class="row">
+                  <div class="col-12 col-sm-auto mb-3">
+                    <div class="mx-auto" style="width: 140px;">
+                      <img class="rounded-circle" src="assets/img/profile/dead-inside.jpeg" width=140px>
+                    </div>
+                  </div>
+                  <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                    <div class="text-center text-sm-left mb-2 mb-sm-0">
+                      <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap text-start">{{ user.first_name }} {{ user.last_name }}</h4>
+                      <p class="text-start">Software and Knowledge Engineering</p>
+                      <!--                      <div class="text-muted text-start"> Year 2 </div>-->
+                    </div>
+                    <div class="text-sm-right">
+                      <div class="text-end"><span class="badge bg-success">Teacher</span></div>
+                      <div class="text-muted text-end"><small>System ID : {{ user.id }}</small></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-content pt-3">
+                  <div class="tab-pane active">
+                    <form class="form" novalidate="">
+                      <div class="row">
+                        <div class="col">
+                          <div class="row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Full Name</label>
+                                <input class="form-control" type="text" name="name" placeholder="Dead Inside" value="Dead Inside" disabled readonly>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label>ID</label>
+                                <div class="form-disabled">
+                                  <input class="form-control" type="text" name="number" placeholder="6xxxxxxxxx" value="6310545566" disabled readonly>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control" type="email" value="dead.i@ku.th" placeholder="user@example.com" disabled readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col mb-3">
+                              <div class="form-group">
+                                <label>Contact</label>
+                                <textarea rows="3" class="form-control" placeholder="Discord, Line ID or something that you use. ¯\_(ツ)_/¯" disabled readonly>
+Discord : HelloYeew#2740
+Line ID : ilovepippi
+osu! : pippi</textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer text-muted">
+              <div class="col d-flex justify-content-end">
+                <a class="btn btn-primary" href="settings-profile.html" role="button"><i class="fas fa-user-edit"></i> Edit Profile</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock content %}

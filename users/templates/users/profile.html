@@ -14,7 +14,7 @@
                 <div class="row">
                   <div class="col-12 col-sm-auto mb-3">
                     <div class="mx-auto" style="width: 140px;">
-                      <img class="rounded-circle" src="{{ user.profile.image.url }}" width=140px>
+                      <img class="rounded-circle" src="{{ user.profile.image.url }}" width=140px height=140px>
                     </div>
                   </div>
                   <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
@@ -24,7 +24,12 @@
                       <!--                      <div class="text-muted text-start"> Year 2 </div>-->
                     </div>
                     <div class="text-sm-right">
-                      <div class="text-end"><span class="badge bg-success">Teacher</span></div>
+                        {% if user.profile.role == "teacher" %}
+                            <div class="text-end"><span class="badge bg-success">Teacher</span></div>
+                        {% endif %}
+                        {% if user.profile.role == "student" %}
+                            <div class="text-end"><span class="badge bg-secondary">Student</span></div>
+                        {% endif %}
                       <div class="text-muted text-end"><small>System ID : {{ user.id }}</small></div>
                     </div>
                   </div>
@@ -33,12 +38,12 @@
                   <form method="POST" enctype="multipart/form-data">
                       {% csrf_token %}
                       <fieldset class="form-group">
-                          <legend class="border-bottom mb-4">Profile Info</legend>
                           {{ u_form|crispy }}
                           {{ p_form|crispy }}
                       </fieldset>
+                      <p></p>
                       <div class="form-group">
-                          <button class="btn btn-outline-info" type="submit"><i class="fas fa-user-edit"></i> Update</button>
+                          <button class="btn btn-primary" type="submit"><i class="fas fa-user-edit"></i> Update</button>
                       </div>
                   </form>
                 </div>

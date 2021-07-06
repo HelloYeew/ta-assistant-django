@@ -1,5 +1,6 @@
 {% extends "classroom/base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
 <div class="container">
   <div class="row flex-lg-nowrap">
@@ -29,48 +30,19 @@
                   </div>
                 </div>
                 <div class="tab-content pt-3">
-                  <div class="tab-pane active">
-                    <form class="form" novalidate="">
-                      <div class="row">
-                        <div class="col">
-                          <div class="row">
-                            <div class="col">
-                              <div class="form-group">
-                                <label>Full Name</label>
-                                <input class="form-control" type="text" name="name" placeholder="Dead Inside" value="{{ user.first_name }} {{ user.last_name }}" disabled readonly>
-                              </div>
-                            </div>
-                            <div class="col">
-                              <div class="form-group">
-                                <label>ID</label>
-                                <div class="form-disabled">
-                                  <input class="form-control" type="text" name="number" placeholder="6xxxxxxxxx" value="{{ user.student_id }}" disabled readonly>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col">
-                              <div class="form-group">
-                                <label>Email</label>
-                                <input class="form-control" type="email" value="dead.i@ku.th" placeholder="user@example.com" disabled readonly>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col mb-3">
-                              <div class="form-group">
-                                <label>Contact</label>
-                                <textarea rows="3" class="form-control" placeholder="Discord, Line ID or something that you use. ¯\_(ツ)_/¯" disabled readonly>
-Discord : HelloYeew#2740
-Line ID : ilovepippi
-osu! : pippi</textarea>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                  <form method="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <fieldset class="form-group">
+                          <legend class="border-bottom mb-4">Profile Info</legend>
+                          {{ u_form|crispy }}
+                          {{ p_form|crispy }}
+                      </fieldset>
+                      <div class="form-group">
+                          <button class="btn btn-outline-info" type="submit">Update</button>
                       </div>
-                    </form>
+                  </form>
+                </div>
+              </div>
 
                   </div>
                 </div>
@@ -78,7 +50,7 @@ osu! : pippi</textarea>
             </div>
             <div class="card-footer text-muted">
               <div class="col d-flex justify-content-end">
-                <a class="btn btn-primary" href="settings-profile.html" role="button"><i class="fas fa-user-edit"></i> Edit Profile</a>
+                <button class="btn btn-outline-info" type="submit"><i class="fas fa-user-edit"></i>Update</button>
               </div>
             </div>
           </div>

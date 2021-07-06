@@ -1,5 +1,11 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import (
+    CreateView,
+)
+from .forms import ClassCreationForm
 from .models import Class
 
 
@@ -10,3 +16,12 @@ def home(request):
         'page_title': 'Classes'
     }
     return render(request, 'classroom/home.html', context)
+
+
+class ClassCreateView(LoginRequiredMixin, CreateView):
+    model = Class
+    fields = ['name', 'image']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)

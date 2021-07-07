@@ -11,7 +11,7 @@ from django.views.generic import (
 from .forms import EditMember
 from .models import Class
 from database_function.conversion import get_all_class_member, convert_member, create_member_query, convert_to_usable_value
-from database_function.home_view import get_available_class_student, get_available_class_ta, get_available_class_teacher, only_student
+from database_function.home_view import get_available_class_student, get_available_class_ta, get_available_class_teacher, check_status
 
 
 @login_required
@@ -19,12 +19,19 @@ def home(request):
     class_as_student = get_available_class_student(request.user.id)
     class_as_ta = get_available_class_ta(request.user.id)
     class_as_teacher = get_available_class_teacher(request.user.id)
+    only_student = False
+    no_class = False
+    if check_status(request.user.id) == 1:
+        only_student = True
+    elif check_status(request.user.id) == 2:
+        no_class = True
     context = {
         'class_as_student': class_as_student,
         'class_as_ta': class_as_ta,
         'class_as_teacher': class_as_teacher,
-        'only_student': only_student(request.user.id),
-        'page_title': 'Classes'
+        'only_student': only_student,
+        'no_class': no_class,
+        'page_title': 'Classes',
     }
     return render(request, 'classroom/home.html', context)
 

@@ -27,9 +27,13 @@ def get_available_class_teacher(user_id):
     return available_class_teacher
 
 
-def only_student(user_id):
-    if (get_available_class_teacher(user_id) == []) and (get_available_class_ta(user_id) == []):
-        return True
+def check_status(user_id):
+    # 1 = Only student (Member on class as student, no as TA or teacher)
+    # 2 = No class (Not member in any class in entire database)
+    if (get_available_class_teacher(user_id) == []) and (get_available_class_ta(user_id) == []) and (get_available_class_student(user_id) != []):
+        return 1
+    elif (get_available_class_teacher(user_id) == []) and (get_available_class_ta(user_id) == []) and (get_available_class_student(user_id) == []):
+        return 2
     else:
         return False
 
@@ -38,4 +42,4 @@ if __name__ == '__main__':
     print(get_available_class_student(22))
     print(get_available_class_ta(22))
     print(get_available_class_teacher(22))
-    print(only_student(22))
+    print(check_status(22))

@@ -108,6 +108,11 @@
             {% endfor %}
                 </div>
             {% endif %}
+            {% if no_class%}
+                <p class="text-center"><img src="{% static "images/chino_coffee.gif" %}"></p>
+                <h2 class="text-center">No class to show!</h2>
+                <h3 class="text-center">Ask your teacher to add you as member.</h3>
+            {% endif %}
 {% endif %}
 
 </div>

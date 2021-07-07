@@ -108,9 +108,14 @@
             {% endfor %}
                 </div>
             {% endif %}
-            {% if no_class%}
+            {% if no_class and user.profile.role == "teacher" %}
+                <p class="text-center"><img src="{% static "images/rabbit_blank.gif" %}"></p>
+                <h2 class="text-center fw-bold">Let's make some class!</h2>
+                <h3 class="text-center" style="font-family:Arial, FontAwesome">Click "&#xF067; New Class" button to make a new class or ask other teacher to add you as class member!</h3>
+            {% endif %}
+            {% if no_class and user.profile.role == "student" %}
                 <p class="text-center"><img src="{% static "images/chino_coffee.gif" %}"></p>
-                <h2 class="text-center">No class to show!</h2>
+                <h2 class="text-center fw-bold">No class to show!</h2>
                 <h3 class="text-center">Ask your teacher to add you as member.</h3>
             {% endif %}
 {% endif %}

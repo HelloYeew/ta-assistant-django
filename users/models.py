@@ -10,8 +10,8 @@ ROLE = (
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    student_id = models.IntegerField(null=True)
-    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    student_id = models.IntegerField(default='6000000000')
+    image = models.ImageField(default='default.png', upload_to='profile_pics')
     role = models.CharField(max_length=10, choices=ROLE, default='student', null=True)
 
     def __str__(self):

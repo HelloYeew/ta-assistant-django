@@ -1,14 +1,16 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
     CreateView,
     DetailView,
-    UpdateView
+    UpdateView,
+    ListView
 )
 from .forms import EditMember
 from .models import Class
+from database_function.conversion import get_all_class_member,convert_member
 
 
 @login_required
@@ -18,6 +20,18 @@ def home(request):
         'page_title': 'Classes'
     }
     return render(request, 'classroom/home.html', context)
+
+
+def view_member(request, pk):
+    class_detail = get_object_or_404(Class, pk=pk)
+    context = {
+        'page_title': 'Member',
+        'class': class_detail,
+        'student':  get_all_class_member(convert_member(class_detail.student)),
+        'ta':  get_all_class_member(convert_member(class_detail.ta)),
+        'teacher':  get_all_class_member(convert_member(class_detail.teacher)),
+    }
+    return render(request, 'classroom/class_member.html', context)
 
 
 class ClassCreateView(LoginRequiredMixin, CreateView):

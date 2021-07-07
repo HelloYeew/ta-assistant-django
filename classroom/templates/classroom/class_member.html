@@ -1,0 +1,42 @@
+{% extends "classroom/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="container px-4">
+
+        <h1>{{ class.name }} member</h1>
+        <br>
+
+    {% for student_detail in student %}
+        <h2>Student</h2>
+        <div class="row mb-3 border rounded-3">
+            <div class="col-md-3 themed-grid-col"><img class="rounded-circle" width=50px height=50px src={{ student_detail.profile.image.url }}></div>
+            <div class="col-md-6 themed-grid-col">{{ student_detail.first_name }} {{ student_detail.last_name }}</div>
+            <div class="col-md-3 themed-grid-col text-end">{{ student_detail.username }}</div>
+        </div>
+    {% endfor %}
+    {% for ta_detail in ta %}
+        <h2>TA</h2>
+        <div class="row mb-3 border rounded-3">
+            <div class="col-md-3 themed-grid-col"><img class="rounded-circle" width=50px height=50px src={{ ta_detail.profile.image.url }}></div>
+            <div class="col-md-6 themed-grid-col">{{ ta_detail.first_name }} {{ ta_detail.last_name }}</div>
+            <div class="col-md-3 themed-grid-col text-end">{{ ta_detail.username }}</div>
+        </div>
+    {% endfor %}
+    {% for teacher_detail in ta %}
+        <h2>Teacher</h2>
+        <div class="row mb-3 border rounded-3">
+            <div class="col-md-3 themed-grid-col"><img class="rounded-circle" width=50px height=50px src={{ teacher_detail.profile.image.url }}></div>
+            <div class="col-md-6 themed-grid-col">{{ teacher_detail.first_name }} {{ teacher_detail.last_name }}</div>
+            <div class="col-md-3 themed-grid-col text-end">{{ teacher_detail.username }}</div>
+        </div>
+    {% endfor %}
+        <div class="row mb-3 border rounded-3">
+            <div class="col-md-3 themed-grid-col"></div>
+            <div class="col-md-6 themed-grid-col"></div>
+            <div class="col-md-3 themed-grid-col text-end"></a>
+            </div>
+        </div>
+
+    </div>
+{% endblock content %}

@@ -10,7 +10,7 @@ from django.views.generic import (
 )
 from .forms import EditMember
 from .models import Class
-from database_function.conversion import get_all_class_member,convert_member
+from database_function.conversion import get_all_class_member, convert_member, create_member_query, convert_to_usable_value
 from database_function.home_view import get_available_class_student, get_available_class_ta, get_available_class_teacher, only_student
 
 
@@ -34,9 +34,9 @@ def view_member(request, pk):
     context = {
         'page_title': 'Member',
         'class': class_detail,
-        'student':  get_all_class_member(convert_member(class_detail.student)),
-        'ta':  get_all_class_member(convert_member(class_detail.ta)),
-        'teacher':  get_all_class_member(convert_member(class_detail.teacher)),
+        'student': convert_to_usable_value(class_detail)[0],
+        'ta': convert_to_usable_value(class_detail)[1],
+        'teacher': convert_to_usable_value(class_detail)[2],
     }
     return render(request, 'classroom/class_member.html', context)
 

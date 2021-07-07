@@ -22,7 +22,7 @@ def get_available_class_ta(user_id):
 def get_available_class_teacher(user_id):
     available_class_teacher = []
     for class_obj in Class.objects.all():
-        if int(user_id) in get_all_class_member(convert_member(class_obj.ta)):
+        if int(user_id) in get_all_class_member(convert_member(class_obj.teacher)):
             available_class_teacher.append(class_obj)
     return available_class_teacher
 

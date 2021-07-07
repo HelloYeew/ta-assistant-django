@@ -7,15 +7,19 @@
         <h1>{{ class.name }} member</h1>
         <br>
 
-        <h2>Student</h2>
+    {% if student_number != 0 %}
+        <h2>Student({{ student_number }})</h2>
+    {% endif %}
     {% for student_detail in student %}
         <div class="row mb-3 border rounded-3">
             <div class="col-md-3 themed-grid-col"><img class="rounded-circle" width=50px height=50px src={{ student_detail.profile.image.url }}></div>
             <div class="col-md-6 themed-grid-col">{{ student_detail.first_name }} {{ student_detail.last_name }}</div>
-            <div class="col-md-3 themed-grid-col text-end">{{ student_detail.id }}</div>
+            <div class="col-md-3 themed-grid-col text-end">{{ student_detail.username }}</div>
         </div>
     {% endfor %}
-        <h2>TA</h2>
+    {% if ta_number != 0 %}
+        <h2>TA({{ ta_number }})</h2>
+    {% endif %}
     {% for ta_detail in ta %}
         <div class="row mb-3 border rounded-3">
             <div class="col-md-3 themed-grid-col"><img class="rounded-circle" width=50px height=50px src={{ ta_detail.profile.image.url }}></div>
@@ -23,7 +27,9 @@
             <div class="col-md-3 themed-grid-col text-end">{{ ta_detail.username }}</div>
         </div>
     {% endfor %}
-        <h2>Teacher</h2>
+    {% if teacher_number != 0 %}
+        <h2>Teacher({{ teacher_number }})</h2>
+    {% endif %}
     {% for teacher_detail in teacher %}
         <div class="row mb-3 border rounded-3">
             <div class="col-md-3 themed-grid-col"><img class="rounded-circle" width=50px height=50px src={{ teacher_detail.profile.image.url }}></div>
@@ -31,12 +37,6 @@
             <div class="col-md-3 themed-grid-col text-end">{{ teacher_detail.username }}</div>
         </div>
     {% endfor %}
-        <div class="row mb-3 border rounded-3">
-            <div class="col-md-3 themed-grid-col"></div>
-            <div class="col-md-6 themed-grid-col"></div>
-            <div class="col-md-3 themed-grid-col text-end"></div>
-            </div>
-        </div>
 
     </div>
 {% endblock content %}

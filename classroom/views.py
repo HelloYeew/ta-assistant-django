@@ -29,14 +29,19 @@ def home(request):
     return render(request, 'classroom/home.html', context)
 
 
+@login_required
 def view_member(request, pk):
     class_detail = get_object_or_404(Class, pk=pk)
+    student, ta, teacher = convert_to_usable_value(class_detail)
     context = {
         'page_title': 'Member',
         'class': class_detail,
-        'student': convert_to_usable_value(class_detail)[0],
-        'ta': convert_to_usable_value(class_detail)[1],
-        'teacher': convert_to_usable_value(class_detail)[2],
+        'student': student,
+        'ta': ta,
+        'teacher': teacher,
+        'student_number': len(student),
+        'ta_number': len(ta),
+        'teacher_number': len(teacher),
     }
     return render(request, 'classroom/class_member.html', context)
 

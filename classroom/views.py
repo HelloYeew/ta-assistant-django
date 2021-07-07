@@ -11,7 +11,7 @@ from django.views.generic import (
 from .forms import EditMember
 from .models import Class
 from database_function.conversion import get_all_class_member,convert_member
-from database_function.home_view import get_available_class_student, get_available_class_ta, get_available_class_teacher
+from database_function.home_view import get_available_class_student, get_available_class_ta, get_available_class_teacher, only_student
 
 
 @login_required
@@ -23,6 +23,7 @@ def home(request):
         'class_as_student': class_as_student,
         'class_as_ta': class_as_ta,
         'class_as_teacher': class_as_teacher,
+        'only_student': only_student(request.user.id),
         'page_title': 'Classes'
     }
     return render(request, 'classroom/home.html', context)
@@ -47,6 +48,8 @@ class ClassCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+    # TODO: Set class model default (teacher) as user who create the class
 
 
 class ClassDetailView(DetailView):

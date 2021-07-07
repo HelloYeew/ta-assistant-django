@@ -9,28 +9,106 @@
     <a class="btn btn-primary" href="{% url 'new-class' %}" role="button" style="font-family:Arial, FontAwesome">&#xF067; New Class</a>
 {% endif %}
 
-<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
 
 
+{% if only_student %}
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
     {% for class in class_as_student %}
-  <div class="col">
-    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5" style="background-image: url('{{ class.image.url }}');">
-      <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ class.name }}</h2>
-        <ul class="d-flex list-unstyled mt-auto">
-          <li class="me-auto">
-            <img src="{{ class.author.profile.image.url }}" alt="Teacher" width="32" height="32" class="rounded-circle border border-white">
-          </li>
-          <li class="d-flex align-items-center">
-            <i class="bi me-2 fas fa-user"></i>
-            <small>{{ class.author }}</small>
-          </li>
-        </ul>
-        <a href="{% url 'class-detail' class.id %}" class="stretched-link"></a>
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5" style="background-image: url('{{ class.image.url }}');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ class.name }}</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="{{ class.author.profile.image.url }}" alt="Teacher" width="32" height="32" class="rounded-circle border border-white">
+              </li>
+              <li class="d-flex align-items-center">
+                <i class="bi me-2 fas fa-user"></i>
+                <small>{{ class.author }}</small>
+              </li>
+            </ul>
+            <a href="{% url 'class-detail' class.id %}" class="stretched-link"></a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
     {% endfor %}
-</div>
+    </div>
+{% else %}
+            {% if class_as_student|length != 0 %}
+                <h2>Class as student</h2>
+                <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+                {% for class in class_as_student %}
+          <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5" style="background-image: url('{{ class.image.url }}');">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ class.name }}</h2>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                    <img src="{{ class.author.profile.image.url }}" alt="Teacher" width="32" height="32" class="rounded-circle border border-white">
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <i class="bi me-2 fas fa-user"></i>
+                    <small>{{ class.author }}</small>
+                  </li>
+                </ul>
+                <a href="{% url 'class-detail' class.id %}" class="stretched-link"></a>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+                </div>
+            {% endif %}
+
+        {% if class_as_ta|length != 0 %}
+                <h2>Class as TA</h2>
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+                {% for class in class_as_ta %}
+          <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5" style="background-image: url('{{ class.image.url }}');">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ class.name }}</h2>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                    <img src="{{ class.author.profile.image.url }}" alt="Teacher" width="32" height="32" class="rounded-circle border border-white">
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <i class="bi me-2 fas fa-user"></i>
+                    <small>{{ class.author }}</small>
+                  </li>
+                </ul>
+                <a href="{% url 'class-detail' class.id %}" class="stretched-link"></a>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if class_as_teacher|length != 0 %}
+                <h2>Class as teacher</h2>
+                <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+                {% for class in class_as_teacher %}
+          <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5" style="background-image: url('{{ class.image.url }}');">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ class.name }}</h2>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                    <img src="{{ class.author.profile.image.url }}" alt="Teacher" width="32" height="32" class="rounded-circle border border-white">
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <i class="bi me-2 fas fa-user"></i>
+                    <small>{{ class.author }}</small>
+                  </li>
+                </ul>
+                <a href="{% url 'class-detail' class.id %}" class="stretched-link"></a>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+                </div>
+            {% endif %}
+{% endif %}
+
 </div>
 {% endblock content %}

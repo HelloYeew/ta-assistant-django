@@ -11,12 +11,18 @@ from django.views.generic import (
 from .forms import EditMember
 from .models import Class
 from database_function.conversion import get_all_class_member,convert_member
+from database_function.home_view import get_available_class_student, get_available_class_ta, get_available_class_teacher
 
 
 @login_required
 def home(request):
+    class_as_student = get_available_class_student(request.user.id)
+    class_as_ta = get_available_class_ta(request.user.id)
+    class_as_teacher = get_available_class_teacher(request.user.id)
     context = {
-        'class_list': Class.objects.all(),
+        'class_as_student': class_as_student,
+        'class_as_ta': class_as_ta,
+        'class_as_teacher': class_as_teacher,
         'page_title': 'Classes'
     }
     return render(request, 'classroom/home.html', context)

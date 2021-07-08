@@ -21,7 +21,6 @@ def home(request):
     class_as_teacher = get_available_class_teacher(request.user.id)
     only_student = False
     no_class = False
-    teacher_user = False
     if check_status(request.user.id) == 1:
         only_student = True
     elif check_status(request.user.id) == 2:

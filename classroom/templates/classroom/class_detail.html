@@ -3,8 +3,9 @@
 {% block content %}
 <div class="container px-4">
 
-        <h1>{{ object.name }} works</h1>
+        <h1>{{ object.name }}</h1>
         <br>
+        <p class="text-muted">Class ID : {{ object.id }}</p>
         <a class="btn btn-primary" href="new-work.html" role="button" style="font-family:Arial, FontAwesome">&#xF067; New Work</a>
         <a class="btn btn-primary" href="#" role="button" style="font-family:Arial, FontAwesome">&#xF0A1; New Announcement</a>
         <a class="btn btn-primary" href="{% url "class-edit-member" object.pk%}" role="button" style="font-family:Arial, FontAwesome">&#xf4ff; Edit Class Member</a>

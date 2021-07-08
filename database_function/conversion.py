@@ -4,12 +4,31 @@ from classroom.models import Class
 
 
 def convert_member(member_str):
+    """
+    Convert member data from database to member id list
+
+    :param member_str: Data from Class database
+    :type member_str: str
+    :return: a list of member id as integer
+    :rtype: list
+
+    >>> print(convert_member("1,2,50,69"))
+    [1, 2, 50, 69]
+    """
     li = list(member_str.split(","))
     li = [int(item) for item in li]
     return li
 
 
 def get_all_class_member(member_list):
+    """
+    Convert member id list to a list of `user` objects
+
+    :param member_list: List of member id (mainly use an output from convert_member function.
+    :type member_list: list
+    :return: a list of `User` objects
+    :rtype: list
+    """
     member_object_list = []
     if member_list is not list:
         return member_list
@@ -21,15 +40,39 @@ def get_all_class_member(member_list):
 
 
 def convert_id_to_user(user_id):
+    """
+    Get user id as parameter and convert it to `User` object.
+
+    :param user_id: User ID
+    :type user_id: int
+    :return: 'User' object
+    :rtype: object
+    """
     return User.objects.get(id=int(user_id))
 
 
 def create_member_query(member_list):
+    """
+    Get member list and convert it to a list of `User` objects.
+
+    :param member_list: List of member id.
+    :type member_list: list
+    :return: A list of `User` objects.
+    :rtype: list
+    """
     return [convert_id_to_user(item) for item in member_list]
 
 
-# Convert member list in string from database to a value that can use in member list view
 def convert_to_usable_value(class_detail):
+    """
+    Convert member list in string from database to a value that can use in member list view
+
+    This function is target to use in member list view in views.py of Class app.
+
+    :param class_detail: Objects of target class data.
+    :return: 3 list of `User` objects in class (student in class, ta in class and teacher in class)
+    :rtype: list
+    """
     student = []
     ta = []
     teacher = []
@@ -43,7 +86,8 @@ def convert_to_usable_value(class_detail):
 
 
 if __name__ == '__main__':
-    print(convert_to_usable_value(Class.objects.get(id=19)))
-    print(create_member_query(get_all_class_member(convert_member(Class.objects.get(id=19).student))))
-    print(get_all_class_member(convert_member("1,21")))
-    print(convert_id_to_user(1))
+    # print(convert_to_usable_value(Class.objects.get(id=19)))
+    # print(create_member_query(get_all_class_member(convert_member(Class.objects.get(id=19).student))))
+    # print(get_all_class_member(convert_member("1,21")))
+    # print(convert_id_to_user(1))
+    print(convert_member("1,2,50,69"))

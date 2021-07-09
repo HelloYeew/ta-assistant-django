@@ -89,5 +89,5 @@ if __name__ == '__main__':
     # print(convert_to_usable_value(Class.objects.get(id=19)))
     # print(create_member_query(get_all_class_member(convert_member(Class.objects.get(id=19).student))))
     # print(get_all_class_member(convert_member("1,21")))
-    # print(convert_id_to_user(1))
-    print(convert_member("1,2,50,69"))
+    print(convert_id_to_user(24))
+    # print(convert_member("1,2,50,69"))

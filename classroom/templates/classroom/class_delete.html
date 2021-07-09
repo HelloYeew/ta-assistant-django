@@ -1,0 +1,23 @@
+{% extends "classroom/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container px-4">
+
+        <h1>Delete class confirmation</h1>
+        <br>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <h4>Are you sure you want to delete <b>{{ object.name }}</b>?</h4>
+                <h4>All class detail and all assignment will be deleted and cannot get it back.</h4>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-danger" type="submit">Yes, Delete</button>
+                <a class="btn btn-secondary" href="{% url 'class-detail' object.id %}">Cancel</a>
+            </div>
+        </form>
+        <br>
+        <br>
+
+    </div>
+{% endblock content %}

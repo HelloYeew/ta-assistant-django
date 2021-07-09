@@ -3,7 +3,7 @@ from classroom.models import Class
 from database_function.conversion import convert_member, get_all_class_member
 
 """
-This file is mainly to create a view in homepage of each user.
+This file contain a function that is mainly to create a view in homepage of each user.
 """
 
 

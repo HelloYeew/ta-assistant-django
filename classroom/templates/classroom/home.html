@@ -34,10 +34,10 @@
     {% endfor %}
     </div>
 {% else %}
-            {% if class_as_student|length != 0 %}
-                <h2>Class as student</h2>
+    {% if class_as_teacher|length != 0 %}
+                <h2>Class as teacher</h2>
                 <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-                {% for class in class_as_student %}
+                {% for class in class_as_teacher %}
           <div class="col">
             <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5" style="background-image: url('{{ class.image.url }}');">
               <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
@@ -58,8 +58,7 @@
             {% endfor %}
                 </div>
             {% endif %}
-
-        {% if class_as_ta|length != 0 %}
+            {% if class_as_ta|length != 0 %}
                 <h2>Class as TA</h2>
             <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
                 {% for class in class_as_ta %}
@@ -83,11 +82,10 @@
             {% endfor %}
             </div>
             {% endif %}
-
-            {% if class_as_teacher|length != 0 %}
-                <h2>Class as teacher</h2>
+            {% if class_as_student|length != 0 %}
+                <h2>Class as student</h2>
                 <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-                {% for class in class_as_teacher %}
+                {% for class in class_as_student %}
           <div class="col">
             <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5" style="background-image: url('{{ class.image.url }}');">
               <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">

@@ -6,7 +6,8 @@ from django.views.generic import (
     CreateView,
     DetailView,
     UpdateView,
-    ListView
+    ListView,
+    DeleteView
 )
 from .forms import EditMember
 from .models import Class
@@ -82,3 +83,9 @@ class ClassUpdateMember(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if self.request.user == post.author:
             return True
         return False
+
+
+class ClassDeleteView(LoginRequiredMixin, DeleteView):
+    model = Class
+    template_name = 'classroom/class_delete.html'
+    success_url = '/'

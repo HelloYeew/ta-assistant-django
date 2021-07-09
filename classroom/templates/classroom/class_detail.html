@@ -6,9 +6,9 @@
         <h1>{{ object.name }}</h1>
         <br>
         <p class="text-muted">Class ID : {{ object.id }}</p>
-        <a class="btn btn-primary" href="#" role="button" style="font-family:Arial, FontAwesome">&#xF067; New Work</a>
-        <a class="btn btn-primary" href="#" role="button" style="font-family:Arial, FontAwesome">&#xF0A1; New Announcement</a>
-    <a class="btn btn-primary" href="{% url "class-add-student" object.pk %}" role="button" style="font-family:Arial, FontAwesome">&#xF067; Add Student</a>
+{#        <a class="btn btn-primary" href="#" role="button" style="font-family:Arial, FontAwesome">&#xF067; New Work</a>#}
+{#        <a class="btn btn-primary" href="#" role="button" style="font-family:Arial, FontAwesome">&#xF0A1; New Announcement</a>#}
+    <a class="btn btn-primary" href="{% url "class-add-student" object.pk %}" role="button" style="font-family:Arial, FontAwesome">&#xf234; Add Student</a>
         <a class="btn btn-primary" href="{% url "class-edit-member" object.pk%}" role="button" style="font-family:Arial, FontAwesome">&#xf4ff; Edit Class Member</a>
         <a class="btn btn-primary" href="{% url "class-member" object.pk%}" role="button" style="font-family:Arial, FontAwesome">&#xf007; Member List</a>
         <a class="btn btn-danger" href="{% url "class-delete" object.pk%}" role="button" style="font-family:Arial, FontAwesome">&#xf2ed; Delete Class</a>

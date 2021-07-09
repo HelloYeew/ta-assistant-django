@@ -1,0 +1,21 @@
+{% extends "classroom/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="container px-4">
+        <br>
+        <h1>Add Member</h1>
+        <br>
+        <form method="POST">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              {{ form|crispy }}
+          </fieldset>
+          <p></p>
+          <div class="form-group">
+              <button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> Save</button>
+          </div>
+            <p></p>
+      </form>
+    </div>
+{% endblock content %}

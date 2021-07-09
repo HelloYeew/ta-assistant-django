@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse
 from django.views.generic import (
     CreateView,
     DetailView,
@@ -9,7 +10,7 @@ from django.views.generic import (
     ListView,
     DeleteView
 )
-from .forms import EditMember
+from .forms import EditMember, AddStudent
 from .models import Class
 from database_function.conversion import get_all_class_member, convert_member, create_member_query, convert_to_usable_value
 from database_function.home_view import get_available_class_student, get_available_class_ta, get_available_class_teacher, check_status
@@ -88,3 +89,20 @@ class ClassDeleteView(LoginRequiredMixin, DeleteView):
     model = Class
     template_name = 'classroom/class_delete.html'
     success_url = '/'
+
+
+def add_student(request, pk):
+    class_detail = get_object_or_404(Class, pk=pk)
+    if request.method == "POST":
+        form = AddStudent(request.POST)
+        if form.is_valid():
+            return redirect(reverse('class-member', kwargs={'pk': class_detail.id}))
+    else:
+        form = AddStudent()
+
+    context = {
+        'form': form,
+        'page_title': 'Add Student'
+    }
+
+    return render(request, "classroom/class_addstudent.html", context)

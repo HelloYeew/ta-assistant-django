@@ -11,3 +11,7 @@ class EditMember(forms.ModelForm):
     class Meta:
         model = Class
         fields = ['student', 'ta', 'teacher']
+
+
+class AddStudent(forms.Form):
+    student_list = forms.CharField(label='Student List', max_length=1000)

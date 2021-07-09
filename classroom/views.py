@@ -14,6 +14,7 @@ from .forms import EditMember, AddStudent
 from .models import Class
 from database_function.conversion import get_all_class_member, convert_member, create_member_query, convert_to_usable_value
 from database_function.home_view import get_available_class_student, get_available_class_ta, get_available_class_teacher, check_status
+from database_function.add_remove_member import add_student_to_db
 
 
 @login_required
@@ -96,6 +97,11 @@ def add_student(request, pk):
     if request.method == "POST":
         form = AddStudent(request.POST)
         if form.is_valid():
+            add_status = add_student_to_db(form['student_list'].value(), class_detail.id)
+            if add_status:
+                messages.success(request, f'Add student to {class_detail.name} success!')
+            else:
+                messages.error(request, f"Fail to add student to {class_detail.name}. Please check user ID that you put in add form.")
             return redirect(reverse('class-member', kwargs={'pk': class_detail.id}))
     else:
         form = AddStudent()

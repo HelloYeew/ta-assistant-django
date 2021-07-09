@@ -20,23 +20,34 @@ def convert_member(member_str):
     return li
 
 
-def get_all_class_member(member_list):
+def get_all_class_member(member_list, check=False):
     """
     Convert member id list to a list of `user` objects
 
+    :param check: If check is true, this function will use to check that all user ID in list is valid in database.
     :param member_list: List of member id (mainly use an output from convert_member function.
     :type member_list: list
     :return: a list of `User` objects
     :rtype: list
     """
-    member_object_list = []
-    if member_list is not list:
-        return member_list
+    if not check:
+        member_object_list = []
+        if member_list is not list:
+            return member_list
+        else:
+            for member_id in member_list:
+                member_obj = User.objects.get(id=member_id)
+                member_object_list.append(member_obj)
+            return member_object_list
     else:
-        for member_id in member_list:
-            member_obj = User.objects.get(id=member_id)
-            member_object_list.append(member_obj)
-        return member_object_list
+        try:
+            member_object_list = []
+            for member_id in member_list:
+                member_obj = User.objects.get(id=member_id)
+                member_object_list.append(member_obj)
+            return True
+        except:
+            return False
 
 
 def convert_id_to_user(user_id):
@@ -85,9 +96,21 @@ def convert_to_usable_value(class_detail):
     return student, ta, teacher
 
 
+def remove_duplicate(id_list, return_type):
+    new_list = list(set(convert_member(id_list)))
+    if return_type == "str":
+        return_value = ""
+        for member in new_list:
+            return_value += f"{member},"
+        return return_value[:-1]
+    elif return_type == "list":
+        return new_list
+
+
 if __name__ == '__main__':
     # print(convert_to_usable_value(Class.objects.get(id=19)))
     # print(create_member_query(get_all_class_member(convert_member(Class.objects.get(id=19).student))))
     # print(get_all_class_member(convert_member("1,21")))
     print(convert_id_to_user(24))
+    print(remove_duplicate("1,1,2,3,5,1"))
     # print(convert_member("1,2,50,69"))

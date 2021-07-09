@@ -60,9 +60,8 @@ class ClassCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        form.instance.teacher = self.request.user.id
         return super().form_valid(form)
-
-    # TODO: Set class model default (teacher) as user who create the class
 
 
 class ClassDetailView(DetailView):

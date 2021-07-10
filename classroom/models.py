@@ -6,7 +6,7 @@ from django.urls import reverse
 class Class(models.Model):
     name = models.CharField(max_length=100)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(default='default_classroom.jpeg', upload_to='class_pics')
+    image = models.ImageField(default='default_classroom.png', upload_to='class_pics')
     student = models.CharField(max_length=100000, default=0)
     ta = models.CharField(max_length=100000, default=0)
     teacher = models.CharField(max_length=100000, default=0)

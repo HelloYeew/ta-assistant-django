@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, UserConfigGeneralForm
 
 
 def register(request):
@@ -41,3 +41,23 @@ def profile(request):
     }
 
     return render(request, 'users/profile.html', context)
+
+
+@login_required
+def general_setting(request):
+    if request.method == 'POST':
+        general_setting_form = UserConfigGeneralForm(request.post, instance=request.user.config)
+        if general_setting_form.is_valid():
+            general_setting_form.save()
+            messages.success(request, 'Save successful!')
+            return redirect('setting-general')
+
+    else:
+        general_setting_form = UserConfigGeneralForm(instance=request.user.config)
+
+    context = {
+        'page_title': 'General Settings',
+        'general_setting_form': general_setting_form
+    }
+
+    return render(request, 'users/settings-general.html', context)

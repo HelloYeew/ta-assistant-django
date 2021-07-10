@@ -5,29 +5,29 @@
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a class="breadcrumb-link-color" href="{% url 'classroom-home' %}">Courses</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ object.name }}</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ class.name }}</li>
             </ol>
         </nav>
     </div>
 <div class="container px-4">
 
-        <h1>{{ object.name }}</h1>
+        <h1>{{ class.name }}</h1>
         <br>
-        <p class="text-muted">Class ID : {{ object.id }}</p>
+        <p class="text-muted">Class ID : {{ class.id }}</p>
 {#TODO: TA can use this function too.#}
         {% if user.profile.role == "teacher" %}
             <a class="btn btn-primary" href="#" role="button" style="font-family:Arial, FontAwesome">&#xF067; New Work</a>
             <a class="btn btn-primary" href="#" role="button" style="font-family:Arial, FontAwesome">&#xF0A1; New Announcement</a>
-            <a class="btn btn-primary" href="{% url "class-add-student" object.pk %}" role="button" style="font-family:Arial, FontAwesome">&#xf234; Add Student</a>
-            <a class="btn btn-primary" href="{% url "class-add-ta" object.pk %}" role="button" style="font-family:Arial, FontAwesome">&#xf234; Add TA</a>
-            <a class="btn btn-primary" href="{% url "class-add-teacher" object.pk %}" role="button" style="font-family:Arial, FontAwesome">&#xf234; Add Teacher</a>
+            <a class="btn btn-primary" href="{% url "class-add-student" class.id %}" role="button" style="font-family:Arial, FontAwesome">&#xf234; Add Student</a>
+            <a class="btn btn-primary" href="{% url "class-add-ta" class.pk %}" role="button" style="font-family:Arial, FontAwesome">&#xf234; Add TA</a>
+            <a class="btn btn-primary" href="{% url "class-add-teacher" class.id %}" role="button" style="font-family:Arial, FontAwesome">&#xf234; Add Teacher</a>
         {% endif %}
         {% if user.is_superuser == True %}
-            <a class="btn btn-primary" href="{% url "class-edit-member" object.pk%}" role="button" style="font-family:Arial, FontAwesome">&#xf4ff; Edit Class Member Manually</a>
+            <a class="btn btn-primary" href="{% url "class-edit-member" class.id%}" role="button" style="font-family:Arial, FontAwesome">&#xf4ff; Edit Class Member Manually</a>
         {% endif %}
-        <a class="btn btn-primary" href="{% url "class-member" object.pk%}" role="button" style="font-family:Arial, FontAwesome">&#xf007; Member List</a>
+        <a class="btn btn-primary" href="{% url "class-member" class.id%}" role="button" style="font-family:Arial, FontAwesome">&#xf007; Member List</a>
         {% if user == class.author %}
-            <a class="btn btn-danger" href="{% url "class-delete" object.pk%}" role="button" style="font-family:Arial, FontAwesome">&#xf2ed; Delete Class</a>
+            <a class="btn btn-danger" href="{% url "class-delete" class.id%}" role="button" style="font-family:Arial, FontAwesome">&#xf2ed; Delete Class</a>
         {% endif %}
         <br>
         <br>

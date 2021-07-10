@@ -56,6 +56,15 @@ def view_member(request, pk):
     return render(request, 'classroom/class_member.html', context)
 
 
+def class_detail(request, pk):
+    class_object = get_object_or_404(Class, pk=pk)
+    context = {
+        'page_title': 'Class Detail',
+        'class': class_object,
+    }
+    return render(request, 'classroom/class_detail.html', context)
+
+
 class ClassCreateView(LoginRequiredMixin, CreateView):
     model = Class
     fields = ['name', 'image']
@@ -68,6 +77,7 @@ class ClassCreateView(LoginRequiredMixin, CreateView):
 
 class ClassDetailView(DetailView):
     model = Class
+    # TODO: This will use as class view when not login.
 
 
 class ClassUpdateMember(LoginRequiredMixin, UserPassesTestMixin, UpdateView):

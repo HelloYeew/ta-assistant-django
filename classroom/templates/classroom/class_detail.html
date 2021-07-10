@@ -13,7 +13,9 @@
             <a class="btn btn-primary" href="{% url "class-add-student" object.pk %}" role="button" style="font-family:Arial, FontAwesome">&#xf234; Add Student</a>
             <a class="btn btn-primary" href="{% url "class-add-ta" object.pk %}" role="button" style="font-family:Arial, FontAwesome">&#xf234; Add TA</a>
             <a class="btn btn-primary" href="{% url "class-add-teacher" object.pk %}" role="button" style="font-family:Arial, FontAwesome">&#xf234; Add Teacher</a>
-            <a class="btn btn-primary" href="{% url "class-edit-member" object.pk%}" role="button" style="font-family:Arial, FontAwesome">&#xf4ff; Edit Class Member</a>
+        {% endif %}
+        {% if user.is_superuser == True %}
+            <a class="btn btn-primary" href="{% url "class-edit-member" object.pk%}" role="button" style="font-family:Arial, FontAwesome">&#xf4ff; Edit Class Member Manually</a>
         {% endif %}
         <a class="btn btn-primary" href="{% url "class-member" object.pk%}" role="button" style="font-family:Arial, FontAwesome">&#xf007; Member List</a>
         {% if user == class.author %}

@@ -2,6 +2,15 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
+    <div class="container">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="breadcrumb-link-color" href="{% url 'classroom-home' %}">Courses</a></li>
+                <li class="breadcrumb-item"><a class="breadcrumb-link-color" href="{% url 'class-detail' class.id %}">{{ class.name }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Member</li>
+            </ol>
+        </nav>
+    </div>
 <div class="container px-4">
 
         <h1>{{ class.name }} member</h1>

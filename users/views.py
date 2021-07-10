@@ -46,7 +46,7 @@ def profile(request):
 @login_required
 def general_setting(request):
     if request.method == 'POST':
-        general_setting_form = UserConfigGeneralForm(request.post, instance=request.user.config)
+        general_setting_form = UserConfigGeneralForm(request.POST, instance=request.user.config)
         if general_setting_form.is_valid():
             general_setting_form.save()
             messages.success(request, 'Save successful!')

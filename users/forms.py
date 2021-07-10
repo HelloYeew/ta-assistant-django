@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile, Config
+from .models import Profile, Config, CODE_HIGHLIGHT
 
 
 class UserRegisterForm(UserCreationForm):
@@ -31,7 +31,7 @@ class ProfileUpdateForm(forms.ModelForm):
 
 
 class UserConfigGeneralForm(forms.ModelForm):
-    code_highlight = forms.CharField()
+    code_highlight = forms.CharField(label='Code Highlight Color', widget=forms.Select(choices=CODE_HIGHLIGHT))
 
     class Meta:
         model = Config

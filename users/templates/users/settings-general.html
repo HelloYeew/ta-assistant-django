@@ -8,9 +8,9 @@
       <div class="card p-3 setting-menu-box">
         <div class="e-navlist e-navlist--active-bg">
           <ul class="nav">
-            <li class="nav-item"><a class="nav-link px-2" href="settings-profile.html"><i class="fa fa-fw fa-user-circle mr-1"></i><span> Profile</span></a></li>
-            <li class="nav-item"><a class="nav-link px-2" href="settings-system.html"><i class="fa fa-fw fa-cog mr-1"></i><span> General</span></a></li>
-            <li class="nav-item"><a class="nav-link px-2" href="settings-api.html"><i class="fa fa-fw fa-key mr-1"></i><span> API</span></a></li>
+{#            <li class="nav-item"><a class="nav-link px-2" href="settings-profile.html"><i class="fa fa-fw fa-user-circle mr-1"></i><span> Profile</span></a></li>#}
+            <li class="nav-item"><a class="nav-link px-2" href="{% url "setting-general" %}"><i class="fa fa-fw fa-cog mr-1"></i><span> General</span></a></li>
+{#            <li class="nav-item"><a class="nav-link px-2" href="settings-api.html"><i class="fa fa-fw fa-key mr-1"></i><span> API</span></a></li>#}
           </ul>
         </div>
       </div>
@@ -22,34 +22,10 @@
           <div class="card setting-main-box">
             <div class="card-body">
               <div class="row">
-                <div class="col">
-                  <p>Code block color</p>
-                </div>
-                <div class="col">
-                  <select class="selectpicker" data-style="btn-outline-dark">
-                    <option>Atom One Dark</option>
-                    <option>Highlight JS Default</option>
-                    <option>Solarized Dark</option>
-                    <option>Solarized Light</option>
-                    <option>GitHub</option>
-                    <option>Railscasts</option>
-                    <option>Monokai Sublime</option>
-                    <option>Mono Blue</option>
-                    <option>Tomorrow</option>
-                    <option>Color Brewer</option>
-                    <option>Zenburn</option>
-                    <option>Agate</option>
-                    <option>Android Studio</option>
-                    <option>Dracula</option>
-                    <option>Rainbow</option>
-                    <option>Visual Code</option>
-                    <option>Atom One Light</option>
-                  </select>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <pre><code class="language-python text-start">import math
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ general_setting_form|crispy }}
+                                      <pre><code class="language-python text-start">import math
 def circle_area(r) :
     return math.pi * (r**2)
     print(f"Circle circumference is {circle_circumference(r)}")
@@ -59,16 +35,19 @@ def circle_circumference(r) :
 r = float(input("Enter circle radius: "))
 print(f"Circle circumference id {circle_circumference(r):.2f}")
 print(f"Circle area is {circle_area(r):.2f}")</code></pre>
-                </div>
+                    <button class="btn btn-primary" type="submit">Save</button>
+                    </form>
               </div>
             </div>
-            <div class="card-footer text-muted">
-              <div class="col d-flex justify-content-end">
-                <button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> Save Changes</button>
-              </div>
-            </div>
+{#            <div class="card-footer text-muted">#}
+{#              <div class="col d-flex justify-content-end">#}
+{#                <button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> Save Changes</button>#}
+{#              </div>#}
+{#            </div>#}
           </div>
         </div>
       </div>
     </div>
-  </div>{% endblock content %}
+  </div>
+</div>
+{% endblock content %}

@@ -24,6 +24,9 @@
                       <!--                      <div class="text-muted text-start"> Year 2 </div>-->
                     </div>
                     <div class="text-sm-right">
+                        {% if user.is_superuser == True %}
+                            <div class="text-end"><span class="badge bg-warning">System Admin</span></div>
+                        {% endif %}
                         {% if user.profile.role == "teacher" %}
                             <div class="text-end"><span class="badge bg-success">Teacher</span></div>
                         {% endif %}

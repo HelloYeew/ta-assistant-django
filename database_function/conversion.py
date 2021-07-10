@@ -15,9 +15,12 @@ def convert_member(member_str):
     >>> print(convert_member("1,2,50,69"))
     [1, 2, 50, 69]
     """
-    li = list(member_str.split(","))
-    li = [int(item) for item in li]
-    return li
+    if (member_str == "0") or (member_str == ""):
+        return []
+    else:
+        li = list(member_str.split(","))
+        li = [int(item) for item in li]
+        return li
 
 
 def get_all_class_member(member_list, check=False):
@@ -96,8 +99,34 @@ def convert_to_usable_value(class_detail):
     return student, ta, teacher
 
 
-def remove_duplicate(id_list, return_type):
-    new_list = list(set(convert_member(id_list)))
+def remove_duplicate(id_list, class_target_id, return_type, check):
+    """
+    Check duplication in class member and return a new user id list that is not duplicate in class.
+
+    This function mainly use in add_member_to_class function.
+
+    :param id_list: A user id list as a string.
+    :type id_list: str
+    :param class_target_id: A class id that user want to check a duplicate in that class.
+    :type class_target_id: int
+    :param return_type: Type of return value (str or list)
+    :type return_type: str
+    :param check: If check is True, a program will check in entire class member data (include student, ta and teacher
+    that is already in class). But if check is False, a program will check duplication only in id_list parameter.
+    :type check: bool
+    :return: A new user id list that is not duplicate with designated type from return_type value.
+    """
+    if check:
+        new_list = list(set(convert_member(id_list)))
+        class_target = Class.objects.get(id=class_target_id)
+        student_in_class = convert_member(class_target.student)
+        ta_in_class = convert_member(class_target.ta)
+        teacher_in_class = convert_member(class_target.teacher)
+        for member in new_list:
+            if (member in student_in_class) or (member in ta_in_class) or (member in teacher_in_class):
+                new_list.remove(member)
+    else:
+        new_list = list(set(convert_member(id_list)))
     if return_type == "str":
         return_value = ""
         for member in new_list:

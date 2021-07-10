@@ -10,11 +10,11 @@ from django.views.generic import (
     ListView,
     DeleteView
 )
-from .forms import EditMember, AddStudent
+from .forms import EditMember, AddStudent, AddTA, AddTeacher
 from .models import Class
 from database_function.conversion import get_all_class_member, convert_member, create_member_query, convert_to_usable_value
 from database_function.home_view import get_available_class_student, get_available_class_ta, get_available_class_teacher, check_status
-from database_function.add_remove_member import add_student_to_db
+from database_function.add_remove_member import add_member_to_class
 
 
 @login_required
@@ -97,7 +97,7 @@ def add_student(request, pk):
     if request.method == "POST":
         form = AddStudent(request.POST)
         if form.is_valid():
-            add_status = add_student_to_db(form['student_list'].value(), class_detail.id)
+            add_status = add_member_to_class(form['student_list'].value(), class_detail.id, "student")
             if add_status:
                 messages.success(request, f'Add student to {class_detail.name} success!')
             else:
@@ -108,7 +108,54 @@ def add_student(request, pk):
 
     context = {
         'form': form,
-        'page_title': 'Add Student'
+        'page_title': 'Add Student',
+        'class_detail': class_detail
     }
 
     return render(request, "classroom/class_addstudent.html", context)
+
+
+def add_ta(request, pk):
+    class_detail = get_object_or_404(Class, pk=pk)
+    if request.method == "POST":
+        form = AddTA(request.POST)
+        if form.is_valid():
+            add_status = add_member_to_class(form['ta_list'].value(), class_detail.id, "ta")
+            if add_status:
+                messages.success(request, f'Add TA to {class_detail.name} success!')
+            else:
+                messages.error(request, f"Fail to add TA to {class_detail.name}. Please check user ID that you put in add form.")
+            return redirect(reverse('class-member', kwargs={'pk': class_detail.id}))
+    else:
+        form = AddTA()
+
+    context = {
+        'form': form,
+        'page_title': 'Add TA',
+        'class_detail': class_detail
+    }
+
+    return render(request, "classroom/class_addta.html", context)
+
+
+def add_teacher(request, pk):
+    class_detail = get_object_or_404(Class, pk=pk)
+    if request.method == "POST":
+        form = AddTeacher(request.POST)
+        if form.is_valid():
+            add_status = add_member_to_class(form['teacher_list'].value(), class_detail.id, "teacher")
+            if add_status:
+                messages.success(request, f'Add teacher to {class_detail.name} success!')
+            else:
+                messages.error(request, f"Fail to add teacher to {class_detail.name}. Please check user ID that you put in add form.")
+            return redirect(reverse('class-member', kwargs={'pk': class_detail.id}))
+    else:
+        form = AddTeacher()
+
+    context = {
+        'form': form,
+        'page_title': 'Add Teacher',
+        'class_detail': class_detail
+    }
+
+    return render(request, "classroom/class_addteacher.html", context)

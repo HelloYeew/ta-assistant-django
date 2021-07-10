@@ -15,3 +15,11 @@ class EditMember(forms.ModelForm):
 
 class AddStudent(forms.Form):
     student_list = forms.CharField(label='Student List', max_length=1000)
+
+
+class AddTA(forms.Form):
+    ta_list = forms.CharField(label='TA List', max_length=1000)
+
+
+class AddTeacher(forms.Form):
+    teacher_list = forms.CharField(label='Teacher List', max_length=1000)

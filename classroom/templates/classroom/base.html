@@ -12,7 +12,290 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link href="{% static "css/custom-styles.css" %}" rel="stylesheet" />
+  {% if user.config.code_highlight == "a11y-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/a11y-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "a11y-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/a11y-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "agate" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/agate.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "an-old-hope" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/an-old-hope.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "androidstudio" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/androidstudio.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "arduino-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/arduino-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "arta" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/arta.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "ascetic" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/ascetic.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-cave-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-cave-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-cave-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-cave-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-dune-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-dune-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-dune-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-dune-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-estuary-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-estuary-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-estuary-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-estuary-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-forest-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-forest-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-forest-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-forest-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-heath-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-heath-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-heath-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-heath-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-lakeside-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-lakeside-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-lakeside-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-lakeside-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-plateau-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-plateau-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-plateau-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-plateau-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-savanna-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-savanna-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-savanna-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-savanna-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-seaside-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-seaside-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-seaside-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-seaside-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-sulphurpool-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-sulphurpool-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atelier-sulphurpool-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atelier-sulphurpool-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atom-one-dark" %}
     <link rel="stylesheet" href="{% static "css/code-highlight-styles/atom-one-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atom-one-dark-reasonable" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atom-one-dark-reasonable.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "atom-one-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/atom-one-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "brown-paper" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/brown-paper.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "codepen-embed" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/codepen-embed.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "color-brewer" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/color-brewer.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "darcula" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/darcula.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "default" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/default.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "far" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/far.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "foundation" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/foundation.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "github" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/github.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "github-gist" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/github-gist.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "gml" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/gml.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "googlecode" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/googlecode.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "gradient-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/gradient-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "gradient-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/gradient-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "grayscale" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/grayscale.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "gruvbox-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/gruvbox-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "gruvbox-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/gruvbox-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "hopscotch" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/hopscotch.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "hybrid" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/hybrid.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "idea" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/idea.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "ir-black" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/ir-black.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "isbl-editor-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/isbl-editor-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "isbl-editor-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/isbl-editor-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "kimbie.dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/kimbie.dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "kimbie.light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/kimbie.light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "lightfair" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/lightfair.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "lioshi" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/lioshi.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "magula" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/magula.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "mono-blue" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/mono-blue.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "monokai-sublime" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/monokai-sublime.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "monokai" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/monokai.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "night-owl" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/night-owl.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "nnfx" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/nnfx.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "nnfx-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/nnfx-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "nord" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/nord.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "obsidian" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/obsidian.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "ocean" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/ocean.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "paraiso-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/paraiso-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "paraiso-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/paraiso-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "pojoaque" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/pojoaque.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "purebasic" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/purebasic.css" %}">
+  {% endif %}
+
+  {% if user.config.code_highlight == "qtcreator_dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/qtcreator_dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "qtcreator_light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/qtcreator_light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "railscasts" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/railscasts.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "rainbow" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/rainbow.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "routeros" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/routeros.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "school-book" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/school-book.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "shades-of-purple" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/shades-of-purple.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "solarized-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/solarized-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "solarized-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/solarized-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "srcery" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/srcery.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "stackoverflow-dark" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/stackoverflow-dark.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "stackoverflow-light" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/stackoverflow-light.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "sunburst" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/sunburst.css" %}">
+  {% endif %}
+
+  {% if user.config.code_highlight == "tomorrow-night" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/tomorrow-night.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "tomorrow-night-blue" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/tomorrow-night-blue.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "tomorrow-night-bright" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/tomorrow-night-bright.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "tomorrow-night-eighties" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/tomorrow-night-eighties.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "vs" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/vs.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "vs2015" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/vs2015.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "xcode" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/xcode.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "xt256" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/xt256.css" %}">
+  {% endif %}
+  {% if user.config.code_highlight == "zenburn" %}
+    <link rel="stylesheet" href="{% static "css/code-highlight-styles/zenburn.css" %}">
+  {% endif %}
   <script src="https://kit.fontawesome.com/cebbc7821d.js" crossorigin="anonymous"></script>
 </head>
 

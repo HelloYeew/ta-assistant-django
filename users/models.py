@@ -89,4 +89,10 @@ class Profile(models.Model):
 
 # TODO: Make auto resize picture system
 
-# class UserConfig(models.Model):
+
+class UserConfig(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    code_highlight = models.CharField(max_length=50, choices=CODE_HIGHLIGHT, default='atom-one-dark')
+
+    def __str__(self):
+        return f'{self.user.username} Config'

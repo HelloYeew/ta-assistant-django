@@ -141,5 +141,5 @@ if __name__ == '__main__':
     # print(create_member_query(get_all_class_member(convert_member(Class.objects.get(id=19).student))))
     # print(get_all_class_member(convert_member("1,21")))
     print(convert_id_to_user(24))
-    print(remove_duplicate("1,1,2,3,5,1", "str"))
+    print(remove_duplicate("25", 25, "str", check=True))
     # print(convert_member("1,2,50,69"))

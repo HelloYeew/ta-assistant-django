@@ -51,9 +51,9 @@ def add_member_to_class(id_to_add, class_id, target_group):
     elif target_group == "teacher":
         in_database = target_class.teacher
     if in_database == "0":
-        clean_list = remove_duplicate(id_to_add, class_id, "str", False)
+        clean_list = remove_duplicate(id_to_add, class_id, "str", True)
         checked_user = get_all_class_member(convert_member(clean_list), check=True)
-        if checked_user:
+        if checked_user and (clean_list != ""):
             if target_group == "student":
                 target_class.student = clean_list
             elif target_group == "ta":

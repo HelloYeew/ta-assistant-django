@@ -10,6 +10,11 @@ live view : https://ta-assistant-draft.netlify.app/
 
 # Setup
 
+## Package requirement
+
+- Django
+- Pillow
+
 ## Install package requirement
 
 You can install it by using [requirement.txt](requirements.txt) file by running this command.
@@ -20,4 +25,4 @@ pip install -r requirements.txtpip install -r requirements.txt
 
 Or install it manually by PIP from project requirement list.
 
-[comment]: <> (Don't forget to cahnge public key)
+[comment]: <> (Don't forget to cahnge public key and add link on package requirement python and Git too)

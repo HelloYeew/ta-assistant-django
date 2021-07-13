@@ -8,3 +8,16 @@ Template repositories : [repo](https://github.com/ta-assistant/ta-website-draft)
 
 live view : https://ta-assistant-draft.netlify.app/
 
+# Setup
+
+## Install package requirement
+
+You can install it by using [requirement.txt](requirements.txt) file by running this command.
+
+```shell
+pip install -r requirements.txtpip install -r requirements.txt
+```
+
+Or install it manually by PIP from project requirement list.
+
+[comment]: <> (Don't forget to cahnge public key)
